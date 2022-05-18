@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from 'react';
 
 export const useScreenSize = () => {
 	// Initialize state with undefined width/height so server and client renders match
@@ -8,23 +8,24 @@ export const useScreenSize = () => {
 		height: undefined,
 	});
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const handleResize = () => {
+			var newWidth = window.innerWidth;
+			var newHeight = window.innerHeight;
 			setScreenSize({
-				width: window?.innerWidth,
-				height: window?.innerHeight,
+				width: newWidth,
+				height: newHeight,
 			});
 		};
 
 		// Add event listener
 		window.addEventListener('resize', handleResize);
 		// Call handler right away so state gets updated with initial window size
-		//handleResize();
-		// Remove event listener on cleanup	
-		console.log(screenSize)
+		handleResize();
+		// Remove event listener on cleanup
+		console.log(screenSize);
 		return window.removeEventListener('resize', handleResize);
-	
 	}, []);
 
 	return screenSize;
-}
+};

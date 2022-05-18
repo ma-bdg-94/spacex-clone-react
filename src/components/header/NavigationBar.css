@@ -18,3 +18,7 @@
   color: white !important;
   border: none !important;
 }
+
+.dropdown-toggle::after {
+  display: none !important; 
+}
