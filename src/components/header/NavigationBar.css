@@ -1,9 +1,16 @@
 .navigation-bar {
-  background-color: black !important;
+  display: flex;
+  background: none !important;
   color: white !important;
- /*  justify-content: space-between;
-  align-items: center; */
-  padding-left: -50px !important;
+ justify-content: space-between !important;
+  align-items: center;
+  /*padding-left: -50px !important;*/
+  z-index: 5;
+  position: fixed !important;
+  width: '100vw' !important;
+  margin: 0;
+  right: 0;
+  left: 0
 }
 
 .nav-link {
@@ -21,4 +28,46 @@
 
 .dropdown-toggle::after {
   display: none !important; 
+}
+
+.animated-underline {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+}
+
+.animated-underline:after {
+  content: '';
+  position: absolute;
+  width: 75%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 10%;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.animated-underline:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.animated-underline:after {
+  content: '';
+  position: absolute;
+  width: 75%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 10%;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.animated-underline:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
